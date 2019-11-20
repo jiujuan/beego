@@ -10,3 +10,25 @@
 - [golang web框架设计6：上下文设计](https://www.cnblogs.com/jiujuan/p/11898983.html)
 - [golang web框架设计7：整合框架](https://www.cnblogs.com/jiujuan/p/11899010.html)
 
+## 简单使用
+```go
+package main
+
+import (
+    "github.com/jiujuan/beego"
+)
+
+type MainController struct {
+    beego.Controller
+}
+
+func (c *MainController) Get() {
+    c.Ctx.WriteString("hello world")
+}
+
+func main() {
+    beego.BeeApp.RegisterController("/", &MainController{})
+    beego.BeeApp.Run()
+}
+```
+
